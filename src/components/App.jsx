@@ -73,6 +73,16 @@ export default function App() {
     )
 
     function start() {
+      if (numberOfPokemon > 30) {
+        setNumberOfPokemon(30)
+      } else if (numberOfPokemon < 5) {
+        setNumberOfPokemon(5)
+      }
+      if (numberOfVisible > Math.ceil(numberOfPokemon*0.6)) {
+        setnumberOfVisible(Math.ceil(numberOfPokemon*0.6))
+      } else if (numberOfVisible < 3) {
+        setnumberOfVisible(3)
+      }
       generateIds()
       setConfigVisibile(false)
       setGameVisibile(true)
@@ -83,8 +93,9 @@ export default function App() {
     }
 
   return (
+    <>
+      <h1>Poke Memory</h1>
     <div>
-      <h1>Memory cards</h1>
       {
         configVisibile && 
         <ConfigPanel 
@@ -100,12 +111,13 @@ export default function App() {
       }
       
       {
-      gameVisibile && cards
+      gameVisibile && <div className="card-container">{cards}</div>
       }
       {
       gameVisibile && <ScoreBoard currentScore={currentScore} highScore={highScore}/>
       }
     </div>
+    </>
   )
 }
 

@@ -1,26 +1,13 @@
-@font-face {
-  font-family: pokemon;
-  src: url(../assets/pokemon-ds-font.ttf);
-}
-
-* {
-  font-family:'pokemon';
-  color: black;
-}
-
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   width: fit-content;
   margin-bottom: 10px;
-  height: 200px;
+  max-width: 250px;
   width: 200px;
   overflow: hidden;
-}
-
-.card img {
-  height: 160px;
+  padding-bottom: 10px;
 }
 
 @keyframes spin {
@@ -41,7 +28,46 @@
   z-index: 2;
   background-image: url('../assets/card-background.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
   animation: spin .5s ease-out;
   animation-delay: .3s;
   animation-fill-mode:forwards;
+}
+
+.card-container {
+  max-width: 1600px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 1.5rem;
+  max-height: 500px;
+  padding: 1rem;
+  scrollbar-gutter: stable both-edges;
+}
+
+
+
+.card {
+  background-color: rgb(245, 245, 245);
+  box-shadow:   -6px 0 0 0 black,
+                 6px 0 0 0 black,
+                 0 -6px 0 0 black,
+                 0 6px 0 0 black;
+  text-align: center;
+  font-size: 2rem;
+  text-wrap: wrap;
+}
+
+.scoreboard {
+  background-color: whitesmoke;
+  margin-top: 1.5rem;
+  box-shadow:   -6px 0 0 0 black,
+                 6px 0 0 0 black,
+                 0 -6px 0 0 black,
+                 0 6px 0 0 black;
+  font-size: 3rem;
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+
 }
